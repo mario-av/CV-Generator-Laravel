@@ -19,9 +19,8 @@ class CurriculumController extends Controller
      */
     public function create()
     {
-        //
+        return view('curriculums.create');
     }
-
     /**
      * Store a newly created resource in storage.
      */
