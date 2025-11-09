@@ -65,11 +65,34 @@ class CurriculumController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
+    public function update(Request $request, Curriculum $curriculum)
+    {
+        
+        $data = $request->all();
+
+   
+        if ($request->hasFile('profile_image')) {
+
+           
+            if ($curriculum->profile_image) {
+                Storage::disk('public')->delete($curriculum->profile_image);
+            }
+
+            $path = $request->file('profile_image')->store('images', 'public');
+
+            
+            $data['profile_image'] = $path;
+        }
+
+     
+        $curriculum->update($data);
+
+       
+        return redirect()->route('curriculums.index')
+                        ->with('success', '¡Curriculum actualizado con éxito!');
+    }
+    
     /**
      * Remove the specified resource from storage.
      */
