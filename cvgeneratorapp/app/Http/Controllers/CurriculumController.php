@@ -13,7 +13,9 @@ class CurriculumController extends Controller
      */
     public function index()
     {
-        //
+        $curriculums = Curriculum::latest()->get();
+
+        return view('curriculums.index', compact('curriculums'));
     }
 
     /**
