@@ -38,7 +38,7 @@
 
 
                 <div style="margin-top: 15px;">
-                    <a href="#" class="btn" style="background-color: #007BFF;">Ver</a>
+                    <a href="{{ route('curriculums.show', $cv->id) }}" class="btn" style="background-color: #007BFF;">Ver</a>
                     <a href="#" class="btn" style="background-color: #FFC107; color: #333;">Editar</a>
                     <form action="#" method="POST" style="display: inline;">
                         @csrf

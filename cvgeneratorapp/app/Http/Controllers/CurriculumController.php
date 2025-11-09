@@ -48,9 +48,9 @@ class CurriculumController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Curriculum $curriculum)
     {
-        //
+        return view('curriculums.show', compact('curriculum'));
     }
 
     /**
