@@ -1,12 +1,19 @@
 @extends('layouts.app') 
 
 @section('content')
-    <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; justify-content: space-between; align-items: center;" class="no-print">
         <h2>CV de {{ $curriculum->nombre }} {{ $curriculum->apellidos }}</h2>
-        <a href="{{ route('curriculums.index') }}" class="btn" style="background-color: #555;">&laquo; Volver al Listado</a>
+        
+        <div>
+            <a href="{{ route('curriculums.index') }}" class="btn no-print" style="background-color: #555;">&laquo; Volver al Listado</a>
+
+            <button onclick="window.print()" class="btn no-print" style="background-color: #007BFF; margin-left: 10px;">
+                Descargar como PDF
+            </button>
+        </div>
     </div>
 
-    <div style="background-color: #f0f0f0; padding: 20px; border-radius: 8px; margin-top: 20px; border: 1px solid #000;">
+    <div class="cv-content-area" style="background-color: #f0f0f0; padding: 20px; border-radius: 8px; margin-top: 20px; border: 1px solid #000;">
 
         <div style="display: flex; align-items: flex-start; gap: 20px; border-bottom: 1px solid #ccc; padding-bottom: 20px;">
             @if ($curriculum->profile_image)
@@ -14,7 +21,7 @@
             @else
                 <img src="https://via.placeholder.com/150" alt="Sin foto" width="150" style="border-radius: 8px;">
             @endif
-
+            
             <div>
                 <h3 style="margin-top: 0;">{{ $curriculum->nombre }} {{ $curriculum->apellidos }}</h3>
                 <p><strong>Email:</strong> {{ $curriculum->email }}</p>
@@ -50,7 +57,7 @@
             <h4>Actitudes</h4>
             <p style="white-space: pre-wrap;">{{ $curriculum->actitudes }}</p>
         </div>
-
+        
         <div style="border-bottom: 1px solid #ccc; padding: 20px 0;">
             <h4>Aptitudes</h4>
             <p style="white-space: pre-wrap;">{{ $curriculum->aptitudes }}</p>
@@ -60,12 +67,14 @@
             <h4>Habilidades Complementarias</h4>
             <p style="white-space: pre-wrap;">{{ $curriculum->habilidades_complementarias }}</p>
         </div>
-
+        
     </div>
 
-    <div style="margin-top: 20px; text-align: right;">
-        <a href="#" class="btn" style="background-color: #FFC107; color: #333;">Editar este CV</a>
-            <form action="{{ route('curriculums.destroy', $cv->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este CV? ¡No se puede deshacer!');">
+    <div class="no-print" style="margin-top: 20px; text-align: right;">
+        
+        <a href="{{ route('curriculums.edit', $curriculum->id) }}" class="btn" style="background-color: #FFC107; color: #333;">Editar este CV</a>
+            
+            <form action="{{ route('curriculums.destroy', $curriculum->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este CV? ¡No se puede deshacer!');">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn" style="background-color: #DC3545;">Eliminar</button>
