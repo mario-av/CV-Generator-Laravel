@@ -65,10 +65,10 @@
 
     <div style="margin-top: 20px; text-align: right;">
         <a href="#" class="btn" style="background-color: #FFC107; color: #333;">Editar este CV</a>
-        <form action="#" method="POST" style="display: inline;">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn" style="background-color: #DC3545;">Eliminar este CV</button>
-        </form>
+            <form action="{{ route('curriculums.destroy', $cv->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este CV? ¡No se puede deshacer!');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn" style="background-color: #DC3545;">Eliminar</button>
+            </form>
     </div>
 @endsection

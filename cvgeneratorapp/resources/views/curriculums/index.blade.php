@@ -40,7 +40,7 @@
                 <div style="margin-top: 15px;">
                     <a href="{{ route('curriculums.show', $cv->id) }}" class="btn" style="background-color: #007BFF;">Ver</a>
                     <a href="#" class="btn" style="background-color: #FFC107; color: #333;">Editar</a>
-                    <form action="#" method="POST" style="display: inline;">
+                    <form action="{{ route('curriculums.destroy', $cv->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este CV? ¡No se puede deshacer!');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn" style="background-color: #DC3545;">Eliminar</button>

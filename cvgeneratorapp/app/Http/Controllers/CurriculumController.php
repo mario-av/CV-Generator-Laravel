@@ -92,12 +92,22 @@ class CurriculumController extends Controller
         return redirect()->route('curriculums.index')
                         ->with('success', '¡Curriculum actualizado con éxito!');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Curriculum $curriculum)
     {
-        //
+        
+        if ($curriculum->profile_image) {
+            Storage::disk('public')->delete($curriculum->profile_image);
+        }
+
+        
+        $curriculum->delete();
+
+        
+        return redirect()->route('curriculums.index')
+                        ->with('success', '¡Curriculum eliminado con éxito!');
     }
 }
