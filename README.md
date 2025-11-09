@@ -1,8 +1,3 @@
-Aquí tienes un `README.md` completo y profesional para tu proyecto, basado en todo lo que hemos construido (el CRUD de Alumnos).
-
-Puedes copiar y pegar este contenido directamente en un nuevo archivo llamado `README.md` en la raíz de tu proyecto.
-
------
 
 # 📚 Generador de Perfiles de Alumnos
 
