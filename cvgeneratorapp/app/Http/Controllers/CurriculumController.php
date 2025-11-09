@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Curriculum;                            
+use Illuminate\Support\Facades\Storage;       
 
 class CurriculumController extends Controller
 {
@@ -26,7 +28,19 @@ class CurriculumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        if ($request->hasFile('profile_image')) {
+            $path = $request->file('profile_image')->store('images', 'public');
+
+        
+            $data['profile_image'] = $path;
+        }
+
+        Curriculum::create($data);
+
+        return redirect()->route('curriculums.index')
+                        ->with('success', '¡Curriculum creado con éxito!');
     }
 
     /**
