@@ -56,7 +56,7 @@
 </head>
 <body>
     <header>
-        <h1>Generador Quick-CV (Versión Laravel)</h1>
+        <h1>Generador CV</h1>
     </header>
 
     <main>

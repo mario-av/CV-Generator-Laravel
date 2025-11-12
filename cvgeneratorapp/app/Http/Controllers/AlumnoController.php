@@ -41,8 +41,7 @@ class AlumnoController extends Controller
 
         Alumno::create($data);
 
-        return redirect()->route('Alumnos.index')
-                        ->with('success', '¡Alumno creado con éxito!');
+        return redirect()->route('alumnos.index')->with('success', 'Alumno creado con éxito');
     }
 
     /**
@@ -89,7 +88,7 @@ class AlumnoController extends Controller
         $Alumno->update($data);
 
        
-        return redirect()->route('Alumnos.index')
+        return redirect()->route('alumnos.index')
                         ->with('success', '¡Alumno actualizado con éxito!');
     }
 
@@ -107,7 +106,7 @@ class AlumnoController extends Controller
         $Alumno->delete();
 
         
-        return redirect()->route('Alumnos.index')
+        return redirect()->route('alumnos.index')
                         ->with('success', '¡Alumno eliminado con éxito!');
     }
 }
