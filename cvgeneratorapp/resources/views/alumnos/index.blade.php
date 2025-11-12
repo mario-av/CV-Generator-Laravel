@@ -12,7 +12,7 @@
 
 
 <div style="margin-bottom: 20px;">
-    <a href="{{ route('Alumnos.create') }}" class="btn">Crear Nuevo Alumno</a>
+    <a href="{{ route('alumnos.create') }}" class="btn">Crear Nuevo Alumno</a>
 </div>
 
 @if ($Alumnos->isEmpty())
@@ -39,9 +39,9 @@
 
 
             <div style="margin-top: 15px;">
-                <a href="{{ route('Alumnos.show', $alumno->id) }}" class="btn" style="background-color: #007BFF;">Ver</a>
-                <a href="{{ route('Alumnos.edit', $alumno->id) }}" class="btn" style="background-color: #FFC107; color: #333;">Editar</a>
-                <form action="{{ route('Alumnos.destroy', $alumno->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este Alumno? ¡No se puede deshacer!');">
+                <a href="{{ route('alumnos.show', $alumno->id) }}" class="btn" style="background-color: #007BFF;">Ver</a>
+                <a href="{{ route('alumnos.edit', $alumno->id) }}" class="btn" style="background-color: #FFC107; color: #333;">Editar</a>
+                <form action="{{ route('alumnos.destroy', $alumno->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este Alumno? ¡No se puede deshacer!');">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn" style="background-color: #DC3545;">Eliminar</button>

@@ -4,7 +4,7 @@
     <h2\>Crear Nuevo Alumno</h2\>
     <p\>Completa el formulario a continuación:</p\>
 
-    <form action="{{ route('Alumnos.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('alumnos.store') }}" method="POST" enctype="multipart/form-data">
 
         @csrf
 

@@ -6,7 +6,7 @@
 
 
     <div>
-        <a href="{{ route('Alumnos.index') }}" class="btn no-print" style="background-color: #555;">&laquo; Volver al Listado</a>
+        <a href="{{ route('alumnos.index') }}" class="btn no-print" style="background-color: #555;">&laquo; Volver al Listado</a>
 
         <button onclick="window.print()" class="btn no-print" style="background-color: #007BFF; margin-left: 10px;">
             Descargar como PDF
@@ -51,9 +51,9 @@
 
 <div class="no-print" style="margin-top: 20px; text-align: right;">
     
-    <a href="{{ route('Alumnos.edit', $Alumno->id) }}" class="btn" style="background-color: #FFC107; color: #333;">Editar este CV</a>
+    <a href="{{ route('alumnos.edit', $Alumno->id) }}" class="btn" style="background-color: #FFC107; color: #333;">Editar este CV</a>
         
-        <form action="{{ route('Alumnos.destroy', $Alumno->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este CV? ¡No se puede deshacer!');">
+        <form action="{{ route('alumnos.destroy', $Alumno->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este CV? ¡No se puede deshacer!');">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn" style="background-color: #DC3545;">Eliminar</button>

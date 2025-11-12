@@ -5,7 +5,7 @@
 <p>Modifica el formulario a continuación:</p>
 
 
-<form action="{{ route('Alumnos.update', $Alumno->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('alumnos.update', $Alumno->id) }}" method="POST" enctype="multipart/form-data">
 
     @csrf
     @method('PUT')
